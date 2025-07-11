@@ -1,0 +1,24 @@
+{
+  "name": "insurance-recommendation-engine",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "install:all": "pnpm install && pnpm --filter backend install && pnpm --filter frontend install",
+    "dev": "concurrently \"pnpm run dev:backend\" \"pnpm run dev:frontend\"",
+    "dev:frontend": "pnpm --filter frontend dev",
+    "dev:backend": "pnpm --filter backend dev",
+    "build": "pnpm run build:backend && pnpm run build:frontend",
+    "build:frontend": "pnpm --filter frontend build",
+    "build:backend": "pnpm --filter backend build",
+    "start": "pnpm --filter backend start",
+    "db:setup": "pnpm --filter backend db:setup",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "typecheck": "pnpm run typecheck:backend && pnpm run typecheck:frontend",
+    "typecheck:backend": "pnpm --filter backend typecheck",
+    "typecheck:frontend": "pnpm --filter frontend typecheck"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
